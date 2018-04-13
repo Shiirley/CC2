@@ -1,21 +1,20 @@
-//paso por referencia
+
+
 #include <iostream>
 
 using namespace std;
-
 void referencia(int &x){
     x+=10;
 }
 //paso por valor
-void valor(int y){
-    y+=10;
+int valor(int y,int x){
+    return y+x;
 }
 int main(){
-    int num=10,n=30;
+    int num=10,n=5,m=6;
     referencia(num);
-    cout<<num<<endl;
-    valor(n);
-    cout<<n<<endl;
+    cout<<"Paso por referencia: "<<num<<endl;
+    cout<<"Paso por valor: "<<valor(n,m)<<endl;
     system("pause");
     return 0;
 }
