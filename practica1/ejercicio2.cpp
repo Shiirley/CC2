@@ -1,25 +1,33 @@
-//suma recursiva de los elemntos d un array
 #include <iostream>
 
 using namespace std;
-int sumarecursiva(int A[],int n){
-    if (n==0)
-        return A[n];
-    else
-        return A[n-1]+sumarecursiva(A[n],n-1);
+
+int vec[100],tam;//variables globales
+
+void ingresar(){
+    cout<<"\nTamaño del arreglo: ";cin>>tam;
+    for(int i=0;i<tam;i++){
+        cout<<i+1<<". numero: ";cin>>vec[i];
+    }
 }
-int sumaiterativa(int B[],int m){
+//suma recursiva de los elementos de un array
+int sumarecursiva(int vec[],int tam){
+    if (tam==0)
+        return 0;
+    else
+        return vec[tam-1]+sumarecursiva(vec,tam-1);
+}
+int sumaiterativa(int vec[],int tam){
     int cont=0;
-    for(int i=0;i<m;i++){
-        cont+=B[i];
+    for(int i=0;i<tam;i++){
+        cont+=vec[i];
     }
     return cont;
 }
 int main(){
-    int A[7]={1,2,3,4,5,6,7};
-    int B[6]={1,2,2,3,1,1};
-    cout<<sumarecursiva(A,7)<<endl;
-    cout<<sumaiterativa(B,6)<<endl;
+    ingresar();
+    cout<<"\nLa suma recursiva: "<<sumarecursiva(vec,tam)<<endl;
+    cout<<"\nLa suma iteriativa: "<<sumaiterativa(vec,tam)<<endl;
     system("pause");
     return 0;
 }
